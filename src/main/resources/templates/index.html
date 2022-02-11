@@ -14,8 +14,6 @@
 	<div align="center">
 		<h1>Product Management System</h1>
 		<div class="d-flex flex-row-reverse">
-		  <div class="p-2"><a th:href=@{/showNewProductForm}><button type="button" class="btn btn-danger">Delete</button></a></div>
-		  
 		  <div class="p-2"><a th:href=@{/showNewProductForm}><button type="button" class="btn btn-primary">Create</button></a></div>
 		</div>
 		<table border="1" class="table">
@@ -34,7 +32,8 @@
 				<td th:text=${product.name}></td>
 				<td th:text=${product.manufacturer}></td>
 				<td th:text=${product.price}></td>
-				<td><a th:href="@{/showFormUpdate/{id}(id=${product.id})}" class="btn btn-secondary">Update</a></td>
+				<td><a th:href="@{/showFormUpdate/{id}(id=${product.id})}" class="btn btn-secondary">Update</a>
+					<a th:href="@{/deleteProduct/{id}(id=${product.id})}" class="btn btn-danger">Delete</a></td>
 			</tr>
 			</tbody>
 		</table>
