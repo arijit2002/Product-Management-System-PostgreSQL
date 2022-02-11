@@ -6,5 +6,9 @@ import a.model.Product;
 
 public interface ProductService {
 	List<Product> getAllProducts();
-	void saveProduct(Product product);	
+	Product saveProduct(Product product);
+	Product getProductById(Long id);
+	Product updateProduct(Product product);
+	void deleteProductById(Long id);
+	
 }

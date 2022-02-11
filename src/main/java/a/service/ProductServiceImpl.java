@@ -11,15 +11,40 @@ import a.repository.ProductRepository;
 @Service
 public class ProductServiceImpl implements ProductService{
 
-	@Autowired
+	
 	private ProductRepository productRepository;
+	
+	
+	public ProductServiceImpl(ProductRepository productRepository) {
+		super();
+		this.productRepository=productRepository;
+	}
 	
 	@Override
 	public List<Product> getAllProducts() {
 		return productRepository.findAll();
 	}
 	@Override
-	public void saveProduct(Product product) {
-		this.productRepository.save(product);
+	public Product saveProduct(Product product) {
+		return productRepository.save(product);
+	}
+	
+	@Override
+	public Product getProductById(Long id) {
+		return productRepository.findById(id).get();
+		
+	}
+	
+	
+	@Override
+	public Product updateProduct(Product product) {
+		return productRepository.save(product);
+		
+		
+	}
+	
+	@Override
+	public void deleteProductById(Long id) {
+		productRepository.deleteById(id);
 	}
 }
