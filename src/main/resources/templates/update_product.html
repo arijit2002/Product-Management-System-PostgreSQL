@@ -15,6 +15,7 @@
 		<h1>Update Product</h1>
 		<form action="#" th:action="@{/saveProduct}" th:object="${product}" method="POST">
 			
+			<input type="hidden" th:field="*{id}" />
 			<input type="text" th:field="*{name}" 
 				class="form-control mb-4 col-4" >
 			<input type="text" th:field="*{manufacturer}" 
