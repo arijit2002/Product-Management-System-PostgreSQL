@@ -15,7 +15,7 @@
 		<h1>Product Management System</h1>
 		<div class="d-flex flex-row-reverse">
 		  <div class="p-2"><a th:href=@{/showNewProductForm}><button type="button" class="btn btn-danger">Delete</button></a></div>
-		  <div class="p-2"><a th:href=@{/showNewProductForm}><button type="button" class="btn btn-secondary">Update</button></a></div>
+		  
 		  <div class="p-2"><a th:href=@{/showNewProductForm}><button type="button" class="btn btn-primary">Create</button></a></div>
 		</div>
 		<table border="1" class="table">
@@ -25,6 +25,7 @@
 					<th>Product Name</th>
 					<th>Manufacturer</th>
 					<th>Price of the Product</th> 
+					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -33,6 +34,7 @@
 				<td th:text=${product.name}></td>
 				<td th:text=${product.manufacturer}></td>
 				<td th:text=${product.price}></td>
+				<td><a th:href="@{/showFormUpdate/{id}(id=${product.id})}" class="btn btn-secondary">Update</a></td>
 			</tr>
 			</tbody>
 		</table>
