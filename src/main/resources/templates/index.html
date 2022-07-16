@@ -24,7 +24,7 @@
 						<th>Product Name</th>
 						<th>Manufacturer</th>
 						<th>Price of the Product</th> 
-						<th>Actions</th>
+						<th sec:authorize="hasRole('admin')">Actions</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -33,7 +33,7 @@
 					<td th:text=${product.name}></td>
 					<td th:text=${product.manufacturer}></td>
 					<td th:text=${product.price}></td>
-					<td><a th:href="@{/showFormUpdate/{id}(id=${product.id})}" class="btn btn-secondary">Update</a>
+					<td sec:authorize="hasRole('admin')"><a th:href="@{/showFormUpdate/{id}(id=${product.id})}" class="btn btn-secondary">Update</a>
 						<a th:href="@{/deleteProduct/{id}(id=${product.id})}" class="btn btn-danger">Delete</a></td>
 				</tr>
 				</tbody>

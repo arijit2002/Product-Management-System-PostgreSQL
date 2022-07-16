@@ -31,10 +31,9 @@ public class SecConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http)throws Exception{
 		http
 			.authorizeRequests()
-			.antMatchers("/","/acccessdenied","/login").permitAll()
-			.antMatchers("/user").hasAnyRole("user","admin")
-			.antMatchers("/admin").hasRole("admin")
-			.antMatchers("/testing").hasAnyRole("user","admin")
+			.antMatchers("/","/login").permitAll()
+			.antMatchers("/saveProduct","/showNewProductForm","/showFormUpdate/*").hasAnyRole("user","admin")
+			.antMatchers("/admin","/deleteProduct/*").hasRole("admin")
 			.anyRequest().authenticated()
 			.and()
 			.formLogin();
