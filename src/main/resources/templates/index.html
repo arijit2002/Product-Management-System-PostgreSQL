@@ -11,14 +11,15 @@
 <link rel="stylesheet"  href="/styles.css">
 </head>
 <body>
-	<div align="center">
+	<div align="center" class="my-3">
 		<h1>Product Management System</h1>
 		<div class="d-flex flex-row-reverse">
-		  <div class="p-2"><a th:href=@{/showNewProductForm}><button type="button" class="btn btn-primary">Add New Product</button></a></div>
+		  <div class="p-2 my-0"><a th:href=@{/showNewProductForm}><button type="button" class="btn btn-primary">Add New Product</button></a></div>
+		  <div class="p-2 my-0"><a th:href=@{/logout}><button type="button" class="btn btn-primary">Logout</button></a></div>
 		</div>
 		<div class="content">
-			<table border="1" class="table">
-				<thead>
+			<table border="1" class="table ">
+				<thead class="table-warning">
 					<tr>
 						<th>Product ID</th>
 						<th>Product Name</th>
@@ -27,7 +28,7 @@
 						<th sec:authorize="hasRole('admin')">Actions</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody class="table-primary">
 				<tr th:each="product: ${listProducts}">
 					<td th:text=${product.id}></td>
 					<td th:text=${product.name}></td>

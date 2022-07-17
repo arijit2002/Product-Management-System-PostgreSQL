@@ -1,12 +1,16 @@
 @charset "ISO-8859-1";
 
+*{
+	padding: 5px;
+}
+
 .content{
 	border: solid;
 	padding:0px;
-	margin:10px;
+	margin:0px;
 }
 
 tr,th {
-	padding:10px;
+	padding:0px;
 	text-align:center;
 }
