@@ -14,3 +14,8 @@ tr,th {
 	padding:0px;
 	text-align:center;
 }
+
+.form-control{
+	border-color: #C0C0C0;
+	border-width: 3px;
+}

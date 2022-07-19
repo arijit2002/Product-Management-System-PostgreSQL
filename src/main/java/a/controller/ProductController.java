@@ -1,8 +1,6 @@
 package a.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,9 +17,16 @@ public class ProductController {
 	private ProductService productService;
 	
 	@GetMapping("/")
-	public String homepage(Model m) {
-		m.addAttribute("listProducts", productService.getAllProducts());
+	public String index(Model m) {
+		m.addAttribute("listName",productService.getAllProducts());
 		return "index";
+		
+	}
+	
+	@GetMapping("/home")
+	public String home(Model m) {
+		m.addAttribute("listProducts", productService.getAllProducts());
+		return "home";
 	}
 	
 	@GetMapping("/showNewProductForm")
@@ -34,7 +39,7 @@ public class ProductController {
 	@PostMapping("/saveProduct")
 	public String saveProduct(@ModelAttribute("product") Product product) {
 		productService.saveProduct(product);
-		return "redirect:/";
+		return "redirect:/home";
 	}
 	
 	@GetMapping("/showFormUpdate/{id}")
@@ -47,11 +52,7 @@ public class ProductController {
 	@GetMapping("/deleteProduct/{id}")
 	public String deleteProduct(@PathVariable(value="id") long id) {
 		this.productService.deleteById(id);
-		return "redirect:/";
+		return "redirect:/home";
 	}
-	
-	@GetMapping("/admin")
-	public String admin(@AuthenticationPrincipal User user) {
-		return "redirect:/";
-	} 
+	 
 }
