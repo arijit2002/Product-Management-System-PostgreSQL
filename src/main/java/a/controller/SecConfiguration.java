@@ -1,8 +1,5 @@
 package a.controller;
 
-import javax.sql.DataSource;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -19,8 +16,6 @@ import a.service.CustomUserDetailsService;
 @Configuration
 @EnableWebSecurity
 public class SecConfiguration extends WebSecurityConfigurerAdapter {
-    @Autowired
-    private DataSource dataSource;
      
     @Bean
     public UserDetailsService userDetailsService() {
@@ -44,6 +39,8 @@ public class SecConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
+        auth.inMemoryAuthentication().passwordEncoder(passwordEncoder()).withUser("admin")
+		.password(passwordEncoder().encode("root")).roles("admin");
     }
  
     @Override
