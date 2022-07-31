@@ -15,24 +15,21 @@
 		<h1>Product Management System</h1>
 		<div class="d-flex flex-row-reverse">
 		  <div class="p-2 my-0"><a th:href=@{/home}><button type="button" class="btn btn-success">Show Full Details</button></a></div>
+		  <div class="p-2 my-0"><a th:href=@{/register}><button type="button" class="btn btn-primary">SignUp</button></a></div>
 		</div>
 		
 		<div class="content">
 			<table border="1" class="table ">
 				<thead class="table-warning">
 					<tr>
-						<th>Product ID</th>
-						<th>Product Name</th>
-						<th>Manufacturer</th>
-						<th>Price of the Product</th> 
+						<th>Products Available</th>
+						<th>Products' Manufacturer</th> 
 					</tr>
 				</thead>
 				<tbody class="table-primary">
 				<tr th:each="product: ${listName}">
-					<td th:text=${product.id}></td>
 					<td th:text=${product.name}></td>
 					<td th:text=${product.manufacturer}></td>
-					<td th:text=${product.price}></td>
 				</tr>
 				</tbody>
 			</table>

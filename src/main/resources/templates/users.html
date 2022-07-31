@@ -15,28 +15,27 @@
 		<h1>Product Management System</h1>
 		<div class="d-flex flex-row-reverse">
 		  <div class="p-2 my-0"><a th:href=@{/showNewProductForm}><button type="button" class="btn btn-success">Add New Product</button></a></div>
-		  <div class="p-2 my-0" sec:authorize="hasRole('admin')"><a th:href=@{/users}><button type="button" class="btn btn-warning">Show User Details</button></a></div>
+		  <div class="p-2 my-0" sec:authorize="hasRole('admin')"><a th:href=@{/home}><button type="button" class="btn btn-warning">Show Product Details</button></a></div>
 		  <div class="p-2 my-0"><a th:href=@{/logout}><button type="button" class="btn btn-secondary">Logout</button></a></div>
 		</div>
 		<div class="content">
 			<table border="1" class="table ">
 				<thead class="table-warning">
 					<tr>
-						<th>Product ID</th>
-						<th>Product Name</th>
-						<th>Manufacturer</th>
-						<th>Price of the Product</th>
+						<th>User ID</th>
+						<th>Email</th>
+						<th>First Name</th>
+						<th>Last Name</th>
 						<th sec:authorize="hasRole('admin')">Actions</th>
 					</tr>
 				</thead>
 				<tbody class="table-primary">
-				<tr th:each="product: ${listProducts}">
-					<td th:text=${product.id}></td>
-					<td th:text=${product.name}></td>
-					<td th:text=${product.manufacturer}></td>
-					<td th:text=${product.price}></td>
-					<td sec:authorize="hasRole('admin')"><a th:href="@{/showFormUpdate/{id}(id=${product.id})}" class="btn btn-info">Update</a>
-						<a th:href="@{/deleteProduct/{id}(id=${product.id})}" class="btn btn-danger">Delete</a></td>
+				<tr th:each="user: ${listUsers}">
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td th:text="${user.firstName}"></td>
+                    <td th:text="${user.lastName}">Last Name</td>
+					<td sec:authorize="hasRole('admin')"><a th:href="@{/deleteUser/{id}(id=${user.id})}" class="btn btn-danger">Delete</a></td>
 				</tr>
 				</tbody>
 			</table>
