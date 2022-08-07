@@ -47,7 +47,7 @@ public class SecConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
             .antMatchers("/home","/showNewProductForm","/saveProduct","/showFormUpdate/*","/deleteProduct/*").authenticated()
-            .antMatchers("/users","/deleteUser/*").hasAnyAuthority("admin")
+            .antMatchers("/users","/deleteUser/*").hasRole("admin")
             .anyRequest().permitAll()
             .and()
             .formLogin()
