@@ -1,5 +1,5 @@
 # Product-Management-System 
 ### Using Springboot JPA
-### _Note:_ Spring Security and Testing will be added later in this project.
+Spring Security added.
 
-_Heroku link--> https://crud-springboot-postgres.herokuapp.com/_
+Heroku link--> [https://crud-springboot-postgres.herokuapp.com/](https://productmanagement-system.herokuapp.com/)
