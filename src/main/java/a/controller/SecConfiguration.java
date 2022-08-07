@@ -46,12 +46,13 @@ public class SecConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-            .antMatchers("/home").authenticated()
+            .antMatchers("/home","/showNewProductForm","/saveProduct","/showFormUpdate/*","/deleteProduct/*").authenticated()
+            .antMatchers("/users","/deleteUser/*").hasAnyAuthority("admin")
             .anyRequest().permitAll()
             .and()
             .formLogin()
                 .usernameParameter("email")
-                .defaultSuccessUrl("/users")
+                .defaultSuccessUrl("/home")
                 .permitAll()
             .and()
             .logout().logoutSuccessUrl("/").permitAll();
