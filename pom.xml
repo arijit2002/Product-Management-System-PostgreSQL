@@ -39,17 +39,17 @@
 			<optional>true</optional>
 		</dependency>
 		
-		<dependency>
+		<!--<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
-		</dependency>
+		</dependency> -->
 		
-		<!-- <dependency>
-                  <groupId>org.postgresql</groupId>
-                     <artifactId>postgresql</artifactId>
-                    <version>42.3.1</version>
-                     </dependency>  -->
+		<dependency>
+           <groupId>org.postgresql</groupId>
+           <artifactId>postgresql</artifactId>
+           <version>42.4.1</version><!--$NO-MVN-MAN-VER$-->
+        </dependency>
                      
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
